@@ -26,6 +26,12 @@ export const userRepository = {
     return user;
   },
 
+  updateEmail(id: number, email: string): User | undefined {
+    const user = users.find((u) => u.id === id);
+    if (user) user.email = email;
+    return user;
+  },
+
   // Повертає сховище до початкових даних. Використовується в тестах.
   reset(): void {
     users = SEED_USERS.map((u) => ({ ...u }));
